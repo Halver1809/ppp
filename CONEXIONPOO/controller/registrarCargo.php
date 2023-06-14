@@ -5,9 +5,6 @@ extract($_REQUEST);
 $objConexion = conexion();
 $sql = "INSERT INTO cargos(CarNombre, CarSueldo) values ('$_REQUEST[nombre]', '$_REQUEST[sueldo]')";
 
-
-
-
 $resultado = $objConexion->query($sql);
 
 if ($resultado) {

@@ -1,7 +1,6 @@
 <?php
 function conexion()
 {
-
     $conexion = new mysqli("localhost", "root", "", "empresa");
 
     if ($conexion->connect_errno) {
@@ -10,6 +9,4 @@ function conexion()
         //echo "Conexion exitosa";
         return $conexion;
     }
-}
-
-//if(resultado= $conexion)
+}//if(resultado= $conexion)

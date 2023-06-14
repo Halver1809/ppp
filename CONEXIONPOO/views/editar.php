@@ -4,8 +4,8 @@ $objConection = conexion();
 $sql = "SELECT idCargo,carNombre FROM cargos";
 $resultadoCargos = $objConection->query($sql);
 $sql = "SELECT * FROM empleados where IdEmplado = '$_REQUEST[IdEmplado]'";
-$resultadoEmpleado = $objConection -> query($sql);
-$empleados = $resultadoEmpleado -> fetch_object();
+$resultadoEmpleado = $objConection->query($sql);
+$empleados = $resultadoEmpleado->fetch_object();
 ?>
 
 <!DOCTYPE html>
@@ -51,34 +51,32 @@ $empleados = $resultadoEmpleado -> fetch_object();
             </div>
             <div>
                 <label class="form-title3">Identificacion del empleado</label>
-                <input placeholder="Porfavor ingrese la identificacion" type="text" class="form-control" required placeholder="" name="identificacion" value ="<?php echo $empleado -> EmplIdentificacion?>">
+                <input placeholder="Porfavor ingrese la identificacion" type="text" class="form-control" required placeholder="" name="identificacion" value="<?php echo $empleado->EmplIdentificacion ?>">
                 <br>
                 <label class="form-title3">Nombre del empleado</label>
-                <input placeholder="Porfavor ingrese el Nombre" type="text" class="form-control" required placeholder="" name="nombre" value ="<?php echo $empleado -> EmpNombre?>">
+                <input placeholder="Porfavor ingrese el Nombre" type="text" class="form-control" required placeholder="" name="nombre" value="<?php echo $empleado->EmpNombre ?>">
                 <br>
                 <label class="form-title3">Fecha de ingreso del empleado</label>
-                <input placeholder="Porfavor ingrese la fecha" type="date" class="form-control" required placeholder="" name="fecha" value ="<?php echo $empleado -> EmpFechaIngreso?>">
+                <input placeholder="Porfavor ingrese la fecha" type="date" class="form-control" required placeholder="" name="fecha" value="<?php echo $empleado->EmpFechaIngreso ?>">
                 <br>
                 <label class="form-title3">Correo personal del empleado</label>
-                <input placeholder="Porfavor ingrese el correo" type="email" class="form-control" required placeholder="" name="correo" value ="<?php echo $empleado -> EmpCorreo?>">
+                <input placeholder="Porfavor ingrese el correo" type="email" class="form-control" required placeholder="" name="correo" value="<?php echo $empleado->EmpCorreo ?>">
                 <br>
-                <br>    
+                <br>
                 <label class="form-title3"> Genero Emp (Femenino/Maculiono)</label>
                 <select class="form-control" required placeholder name="genero">
                     <option value="0" disabled selected>Selecciona un genero</option>
                     <?php
-                    if($empleado -> EmpGenero == 'Femenino')
-                    {
+                    if ($empleado->EmpGenero == 'Femenino') {
                     ?>
-                    <option value="Femenino" selected="selected">Femenino</option>
-                    <option value="Masculino">Masculino</option>
-                        <?php
-                    }
-                    else {
-                        ?>
+                        <option value="Femenino" selected="selected">Femenino</option>
+                        <option value="Masculino">Masculino</option>
+                    <?php
+                    } else {
+                    ?>
                         <option value="Femenino"></option>
                         <option value="Masculino" selected="selected">Masculino</option>
-                        <?php
+                    <?php
                     }
                     ?>
                 </select>
@@ -88,18 +86,16 @@ $empleados = $resultadoEmpleado -> fetch_object();
                     <option value="0">Selecciona un cargo</option>
                     <?php
 
-                    while ($cargo = $resultado->fetch_object())
-                     {
+                    while ($cargo = $resultado->fetch_object()) {
                     ?>
-                    <?php
-                    if($cargo->$IdCargo==$empleado->EmpCargo)
-                    {
-                        ?>
-                        <option value="<?php echo $cargo->IdCargo?>" select="selected"><?php echo $cargo->CarNombre?></option>
                         <?php
-                    } 
-                    ?>
-                    <option value="<?php echo $cargo->IdCargo?>"><?php echo $cargo->CarNombre?></option>
+                        if ($cargo->$IdCargo == $empleado->EmpCargo) {
+                        ?>
+                            <option value="<?php echo $cargo->IdCargo ?>" select="selected"><?php echo $cargo->CarNombre ?></option>
+                        <?php
+                        }
+                        ?>
+                        <option value="<?php echo $cargo->IdCargo ?>"><?php echo $cargo->CarNombre ?></option>
                     <?php
                     }
                     ?>
@@ -113,7 +109,7 @@ $empleados = $resultadoEmpleado -> fetch_object();
                     <button type="submit" class="btn btn-dark">
                         Registrar
                     </button>
-                    <input type="hidden" name="IdEmpleado" value="<?php echo $_REQUEST ['IdEmplado']?>"/>
+                    <input type="hidden" name="IdEmpleado" value="<?php echo $_REQUEST['IdEmplado'] ?>" />
                 </div>
 
             </div>

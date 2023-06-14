@@ -1,5 +1,5 @@
 <?php
-require "../model/conexion.php";
+include "../model/conexion.php";
 extract($_REQUEST);
 
 $objconection = conexion();
@@ -7,12 +7,8 @@ $sql = "UPDATE empleados SET EmplIdentificacion ='$_REQUEST[identificacion]', Em
 
 $resultado = $objconection->query($sql);
 
-if($resultado)
-{
+if ($resultado) {
     header("location:../views/listaremp.php?x=1");
-}
-else
-{
+} else {
     header("location:../views/listaremp.php?x=2");
 }
-?>

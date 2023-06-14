@@ -5,9 +5,6 @@ extract($_REQUEST);
 $objConexion = conexion();
 $sql = "INSERT INTO usuarios(UsuLogin, UsuPassword) values ('$_REQUEST[empleado]', '$_REQUEST[clave]')";
 
-
-
-
 $resultado = $objConexion->query($sql);
 
 if ($resultado) {
